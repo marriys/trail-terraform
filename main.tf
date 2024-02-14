@@ -5,8 +5,11 @@ secret_key = "+61oS2jg+IylUnEpb+FzbeO8BcYR04KYkVQIe0Oo"
 }
 
 variable "sg" {
- value = "aws_security_group.bar.id"
+  description = "pem Key pair"
+  type = string
+  default = "aws_security_group.bar.id"
 }
+
 resource "aws_instance" "one" {
 ami = "ami-0e731c8a588258d0d"
 instance_type = "t2.medium"
