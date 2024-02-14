@@ -8,7 +8,7 @@ resource "aws_instance" "one" {
 ami = "ami-0e731c8a588258d0d"
 instance_type = "t2.medium"
    key_name = "WebServerKeyPair"
-   vpc_security_group_ids = [sg-0208ba1e169d84283]
+   vpc_security_group_ids = aws_security_group.bar.id
    availability_zone = "us-east-1a"
    user_data = <<EOF
 #!/bin/bash
@@ -27,7 +27,7 @@ resource "aws_instance" "two" {
 ami = "ami-0e731c8a588258d0d"
 instance_type = "t2.micro"
    key_name = "WebServerKeyPair"
-   vpc_security_group_ids = [sg-0208ba1e169d84283]
+   vpc_security_group_ids = aws_security_group.bar.id
    availability_zone = "us-east-1b"
    user_data = <<EOF
 #!/bin/bash
