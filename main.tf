@@ -7,7 +7,7 @@ secret_key = "+61oS2jg+IylUnEpb+FzbeO8BcYR04KYkVQIe0Oo"
 variable "sg" {
   description = "pem Key pair"
   type = string
-  default = "aws_security_group.bar.id"
+  default = "sg-0208ba1e169d84283"
 }
 
 resource "aws_instance" "one" {
