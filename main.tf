@@ -4,17 +4,12 @@ access_key = "AKIAUH5AW5XT2SVKMKD3"
 secret_key = "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"
 }
 
-variable "sg" {
-  description = "pem Key pair"
-  type = string
-  default = "sg-0208ba1e169d84283"
-}
 
 resource "aws_instance" "one" {
 ami = "ami-0e731c8a588258d0d"
 instance_type = "t2.medium"
    key_name = "WebServerKeyPair"
-   vpc_security_group_ids = var.sg
+   vpc_security_group_ids = [ sg-0208ba1e169d84283 ]
    availability_zone = "us-east-1a"
    user_data = <<EOF
 #!/bin/bash
@@ -33,7 +28,7 @@ resource "aws_instance" "two" {
 ami = "ami-0e731c8a588258d0d"
 instance_type = "t2.micro"
    key_name = "WebServerKeyPair"
-   vpc_security_group_ids = var.sg
+   vpc_security_group_ids = [ sg-0208ba1e169d84283 ]
    availability_zone = "us-east-1b"
    user_data = <<EOF
 #!/bin/bash
